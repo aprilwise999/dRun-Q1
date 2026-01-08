@@ -1,0 +1,22 @@
+sparepart-verify-poc/
+├── web_app.py                 ← ✅ Main Streamlit app (with Excel export)
+├── requirements.txt           ← ✅ All dependencies (Streamlit + parsers + Excel)
+│
+├── models.py                  ← Pydantic data models
+│
+├── parsers/
+│   ├── __init__.py
+│   ├── customs_parser.py      ← 📄 ใบขนฯ parser (Set 1 & Set 2 ready)
+│   ├── invoice_parser.py      ← 📄 Invoice parser (FEBI/SWAG/ZF)
+│   └── bl_parser.py           ← 📄 B/L parser
+│
+├── matchers/
+│   ├── __init__.py
+│   └── field_matcher.py       ← 🔍 Line-by-line matching logic
+│
+├── Procfile                   ← 🚀 Railway deployment config
+├── runtime.txt                ← Python version (3.10.12)
+│
+├── README.md                  ← Project overview + run instructions
+│
+└── .gitignore                 ← Ignore venv, __pycache__, temp files

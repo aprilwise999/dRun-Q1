@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Temp files
+temp_upload/
+*.tmp
+
+# Data (optional: ignore after first commit)
+# sample_data/
