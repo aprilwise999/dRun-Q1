@@ -1,0 +1,362 @@
+{
+  "template_info": {
+    "template_type": "item_other",
+    "created_date": "2025-01-24",
+    "description": "Item fields located on middle/other pages (Continuation of product details)",
+    "field_count": 25,
+    "thai_field_count": 5,
+    "empty_field_count": 10
+  },
+  "fields": {
+    "item_other_field_0": {
+      "field_name": "ItemA_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.183085,
+        "y0": 0.165822,
+        "x1": 0.291612,
+        "y1": 0.194114
+      },
+      "page_type": "middle",
+      "sample_text": "EUR 1,191.50",
+      "comment": "ItemA_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_other_field_1": {
+      "field_name": "ItemA_Quantity",
+      "coordinates": {
+        "x0": 0.329083,
+        "y0": 0.218302,
+        "x1": 0.458,
+        "y1": 0.246019
+      },
+      "page_type": "middle",
+      "sample_text": "50.000 C62",
+      "comment": "ItemA_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_2": {
+      "field_name": "ItemA_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.458767,
+        "y0": 0.219388,
+        "x1": 0.719725,
+        "y1": 0.287474
+      },
+      "page_type": "middle",
+      "sample_text": "49221TRANSMISSION MOUNTยางแท่นเียร",
+      "comment": "ItemA_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_other_field_3": {
+      "field_name": "ItemA_Brand",
+      "coordinates": {
+        "x0": 0.718914,
+        "y0": 0.217726,
+        "x1": 0.843792,
+        "y1": 0.232716
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemA_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_4": {
+      "field_name": "ItemA_Country_Code",
+      "coordinates": {
+        "x0": 0.928569,
+        "y0": 0.217726,
+        "x1": 0.970215,
+        "y1": 0.236215
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemA_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_other_field_5": {
+      "field_name": "ItemB_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.183085,
+        "y0": 0.287508,
+        "x1": 0.291612,
+        "y1": 0.315801
+      },
+      "page_type": "middle",
+      "sample_text": "EUR 953.20",
+      "comment": "ItemB_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_other_field_6": {
+      "field_name": "ItemB_Quantity",
+      "coordinates": {
+        "x0": 0.329083,
+        "y0": 0.339412,
+        "x1": 0.458,
+        "y1": 0.367129
+      },
+      "page_type": "middle",
+      "sample_text": "40.000 C62",
+      "comment": "ItemB_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_7": {
+      "field_name": "ItemB_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.458767,
+        "y0": 0.34156,
+        "x1": 0.719725,
+        "y1": 0.409646
+      },
+      "page_type": "middle",
+      "sample_text": "49221TRANSMISSION MOUNTยางแท่นเียร",
+      "comment": "ItemB_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_other_field_8": {
+      "field_name": "ItemB_Brand",
+      "coordinates": {
+        "x0": 0.718227,
+        "y0": 0.339412,
+        "x1": 0.843792,
+        "y1": 0.354119
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemB_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_9": {
+      "field_name": "ItemB_Country_Code",
+      "coordinates": {
+        "x0": 0.928569,
+        "y0": 0.339412,
+        "x1": 0.970215,
+        "y1": 0.357901
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemB_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_other_field_10": {
+      "field_name": "ItemC_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.183901,
+        "y0": 0.409195,
+        "x1": 0.292427,
+        "y1": 0.437488
+      },
+      "page_type": "middle",
+      "sample_text": "EUR 396.60",
+      "comment": "ItemC_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_other_field_11": {
+      "field_name": "ItemC_Quantity",
+      "coordinates": {
+        "x0": 0.329898,
+        "y0": 0.461098,
+        "x1": 0.458816,
+        "y1": 0.488815
+      },
+      "page_type": "middle",
+      "sample_text": "20.000 C62",
+      "comment": "ItemC_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_12": {
+      "field_name": "ItemC_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.457904,
+        "y0": 0.462761,
+        "x1": 0.718734,
+        "y1": 0.530847
+      },
+      "page_type": "middle",
+      "sample_text": "171935PROPSHAFT CENTRE SUPPORTตุ๊ตาเพลาลาง",
+      "comment": "ItemC_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_other_field_13": {
+      "field_name": "ItemC_Brand",
+      "coordinates": {
+        "x0": 0.720285,
+        "y0": 0.461098,
+        "x1": 0.844608,
+        "y1": 0.475521
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemC_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_14": {
+      "field_name": "ItemC_Country_Code",
+      "coordinates": {
+        "x0": 0.929385,
+        "y0": 0.461098,
+        "x1": 0.971031,
+        "y1": 0.479587
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemC_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_other_field_15": {
+      "field_name": "ItemD_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.181454,
+        "y0": 0.530304,
+        "x1": 0.28998,
+        "y1": 0.558597
+      },
+      "page_type": "middle",
+      "sample_text": "EUR 1,792.00",
+      "comment": "ItemD_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_other_field_16": {
+      "field_name": "ItemD_Quantity",
+      "coordinates": {
+        "x0": 0.329946,
+        "y0": 0.583396,
+        "x1": 0.458863,
+        "y1": 0.611111
+      },
+      "page_type": "middle",
+      "sample_text": "256.000 C62",
+      "comment": "ItemD_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_17": {
+      "field_name": "ItemD_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.457137,
+        "y0": 0.583871,
+        "x1": 0.719725,
+        "y1": 0.651957
+      },
+      "page_type": "middle",
+      "sample_text": "47642STRUT MOUNTINGยางรองเบ้าโช๊ค",
+      "comment": "ItemD_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_other_field_18": {
+      "field_name": "ItemD_Brand",
+      "coordinates": {
+        "x0": 0.720285,
+        "y0": 0.582208,
+        "x1": 0.842161,
+        "y1": 0.597409
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemD_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_19": {
+      "field_name": "ItemD_Country_Code",
+      "coordinates": {
+        "x0": 0.926939,
+        "y0": 0.582208,
+        "x1": 0.968584,
+        "y1": 0.600697
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemD_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_other_field_20": {
+      "field_name": "ItemE_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.184668,
+        "y0": 0.650804,
+        "x1": 0.293196,
+        "y1": 0.679096
+      },
+      "page_type": "middle",
+      "sample_text": "EUR 4,153.80",
+      "comment": "ItemE_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_other_field_21": {
+      "field_name": "ItemE_Quantity",
+      "coordinates": {
+        "x0": 0.330667,
+        "y0": 0.705659,
+        "x1": 0.459584,
+        "y1": 0.733376
+      },
+      "page_type": "middle",
+      "sample_text": "516.000 C62",
+      "comment": "ItemE_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_22": {
+      "field_name": "ItemE_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.458976,
+        "y0": 0.704461,
+        "x1": 0.718351,
+        "y1": 0.772547
+      },
+      "page_type": "middle",
+      "sample_text": "109124STRUT MOUNTINGยางรองเบ้าโช๊ค",
+      "comment": "ItemE_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_other_field_23": {
+      "field_name": "ItemE_Brand",
+      "coordinates": {
+        "x0": 0.7196,
+        "y0": 0.702707,
+        "x1": 0.845377,
+        "y1": 0.719298
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemE_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_other_field_24": {
+      "field_name": "ItemE_Country_Code",
+      "coordinates": {
+        "x0": 0.930153,
+        "y0": 0.702707,
+        "x1": 0.971798,
+        "y1": 0.721196
+      },
+      "page_type": "middle",
+      "sample_text": "",
+      "comment": "ItemE_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    }
+  }
+}

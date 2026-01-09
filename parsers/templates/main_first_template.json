@@ -1,0 +1,124 @@
+{
+  "template_info": {
+    "template_type": "main_first",
+    "created_date": "2025-01-24",
+    "description": "Main fields located on the first page (Invoice ID, Date, Consignee, etc.)",
+    "field_count": 8,
+    "thai_field_count": 0,
+    "empty_field_count": 1
+  },
+  "fields": {
+    "main_first_field_0": {
+      "field_name": "Consignee",
+      "coordinates": {
+        "x0": 0.06278,
+        "y0": 0.115902,
+        "x1": 0.286311,
+        "y1": 0.133814
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Consignee",
+      "field_type": "name_field",
+      "has_thai": false
+    },
+    "main_first_field_1": {
+      "field_name": "Invoice_Number_and_Date",
+      "coordinates": {
+        "x0": 0.473857,
+        "y0": 0.239318,
+        "x1": 0.819731,
+        "y1": 0.264728
+      },
+      "page_type": "first",
+      "sample_text": "INV# 12266100:21/01/2025",
+      "comment": "Invoice_Number_and_Date",
+      "field_type": "code_field",
+      "has_thai": false
+    },
+    "main_first_field_2": {
+      "field_name": "Marks",
+      "coordinates": {
+        "x0": 0.058701,
+        "y0": 0.330439,
+        "x1": 0.353192,
+        "y1": 0.416403
+      },
+      "page_type": "first",
+      "sample_text": "FEBITRU AUTOMOTIVE POT241200353POT250100063 707139465 707132647BANGKOKTHAILANDAS PER BL",
+      "comment": "Marks",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "main_first_field_3": {
+      "field_name": "Total_Package",
+      "coordinates": {
+        "x0": 0.357221,
+        "y0": 0.333322,
+        "x1": 0.473904,
+        "y1": 0.415251
+      },
+      "page_type": "first",
+      "sample_text": "42PACKAGE",
+      "comment": "Total_Package",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "main_first_field_4": {
+      "field_name": "Loading_Country_Name",
+      "coordinates": {
+        "x0": 0.719362,
+        "y0": 0.34774,
+        "x1": 0.941261,
+        "y1": 0.382377
+      },
+      "page_type": "first",
+      "sample_text": "GERMANY",
+      "comment": "Loading_Country_Name",
+      "field_type": "country_name",
+      "has_thai": false
+    },
+    "main_first_field_5": {
+      "field_name": "Origin_Country_Name",
+      "coordinates": {
+        "x0": 0.475488,
+        "y0": 0.34886,
+        "x1": 0.689231,
+        "y1": 0.383497
+      },
+      "page_type": "first",
+      "sample_text": "GERMANY",
+      "comment": "Origin_Country_Name",
+      "field_type": "country_name",
+      "has_thai": false
+    },
+    "main_first_field_6": {
+      "field_name": "Loading_Country_Code",
+      "coordinates": {
+        "x0": 0.93795,
+        "y0": 0.348318,
+        "x1": 0.96736,
+        "y1": 0.3818
+      },
+      "page_type": "first",
+      "sample_text": "DE",
+      "comment": "Loading_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "main_first_field_7": {
+      "field_name": "Origin_Country_Code",
+      "coordinates": {
+        "x0": 0.688368,
+        "y0": 0.34947,
+        "x1": 0.717778,
+        "y1": 0.382954
+      },
+      "page_type": "first",
+      "sample_text": "DE",
+      "comment": "Origin_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    }
+  }
+}

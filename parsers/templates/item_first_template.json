@@ -1,0 +1,222 @@
+{
+  "template_info": {
+    "template_type": "item_first",
+    "created_date": "2025-01-24",
+    "description": "Item fields located on the first page (Product details that can repeat)",
+    "field_count": 15,
+    "thai_field_count": 3,
+    "empty_field_count": 6
+  },
+  "fields": {
+    "item_first_field_0": {
+      "field_name": "Item1_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.183493,
+        "y0": 0.456162,
+        "x1": 0.29202,
+        "y1": 0.484455
+      },
+      "page_type": "first",
+      "sample_text": "EUR 300.00",
+      "comment": "Item1_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_first_field_1": {
+      "field_name": "Item1_Quantity",
+      "coordinates": {
+        "x0": 0.32949,
+        "y0": 0.508067,
+        "x1": 0.458408,
+        "y1": 0.535782
+      },
+      "page_type": "first",
+      "sample_text": "3.000 C62",
+      "comment": "Item1_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_2": {
+      "field_name": "Item1_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.459175,
+        "y0": 0.518038,
+        "x1": 0.718532,
+        "y1": 0.577815
+      },
+      "page_type": "first",
+      "sample_text": "TIMING CHAIN KITชุโซ่ราวลิ้น",
+      "comment": "Item1_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_first_field_3": {
+      "field_name": "Item1_Brand",
+      "coordinates": {
+        "x0": 0.717538,
+        "y0": 0.508067,
+        "x1": 0.8442,
+        "y1": 0.522074
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item1_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_4": {
+      "field_name": "Item1_Country_Code",
+      "coordinates": {
+        "x0": 0.928163,
+        "y0": 0.508067,
+        "x1": 0.969807,
+        "y1": 0.526555
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item1_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_first_field_5": {
+      "field_name": "Item2_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.182677,
+        "y0": 0.576441,
+        "x1": 0.291204,
+        "y1": 0.604734
+      },
+      "page_type": "first",
+      "sample_text": "EUR 106.00",
+      "comment": "Item2_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_first_field_6": {
+      "field_name": "Item2_Quantity",
+      "coordinates": {
+        "x0": 0.328675,
+        "y0": 0.628345,
+        "x1": 0.457592,
+        "y1": 0.656062
+      },
+      "page_type": "first",
+      "sample_text": "20.000 C62",
+      "comment": "Item2_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_7": {
+      "field_name": "Item2_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.458359,
+        "y0": 0.630007,
+        "x1": 0.719219,
+        "y1": 0.698093
+      },
+      "page_type": "first",
+      "sample_text": "193569BALL BEARINGแบริ่ง",
+      "comment": "Item2_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_first_field_8": {
+      "field_name": "Item2_Brand",
+      "coordinates": {
+        "x0": 0.718907,
+        "y0": 0.628345,
+        "x1": 0.843385,
+        "y1": 0.643383
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item2_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_9": {
+      "field_name": "Item2_Country_Code",
+      "coordinates": {
+        "x0": 0.927347,
+        "y0": 0.628345,
+        "x1": 0.968992,
+        "y1": 0.646835
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item2_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    },
+    "item_first_field_10": {
+      "field_name": "Item3_Price_in_Foreign_Currency",
+      "coordinates": {
+        "x0": 0.18263,
+        "y0": 0.699247,
+        "x1": 0.291155,
+        "y1": 0.72754
+      },
+      "page_type": "first",
+      "sample_text": "EUR 24.26",
+      "comment": "Item3_Price_in_Foreign_Currency",
+      "field_type": "numeric_field",
+      "has_thai": false
+    },
+    "item_first_field_11": {
+      "field_name": "Item3_Quantity",
+      "coordinates": {
+        "x0": 0.328626,
+        "y0": 0.751152,
+        "x1": 0.457545,
+        "y1": 0.778867
+      },
+      "page_type": "first",
+      "sample_text": "2.000 C62",
+      "comment": "Item3_Quantity",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_12": {
+      "field_name": "Item3_Code_Name_and_Thai_Name",
+      "coordinates": {
+        "x0": 0.458312,
+        "y0": 0.752814,
+        "x1": 0.719219,
+        "y1": 0.8209
+      },
+      "page_type": "first",
+      "sample_text": "03874ENGINE MOUNTINGยางรองแท่นเครื่อง",
+      "comment": "Item3_Code_Name_and_Thai_Name",
+      "field_type": "thai_content",
+      "has_thai": true
+    },
+    "item_first_field_13": {
+      "field_name": "Item3_Brand",
+      "coordinates": {
+        "x0": 0.718907,
+        "y0": 0.751152,
+        "x1": 0.843337,
+        "y1": 0.766141
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item3_Brand",
+      "field_type": "text_field",
+      "has_thai": false
+    },
+    "item_first_field_14": {
+      "field_name": "Item3_Country_Code",
+      "coordinates": {
+        "x0": 0.928114,
+        "y0": 0.751152,
+        "x1": 0.96976,
+        "y1": 0.76964
+      },
+      "page_type": "first",
+      "sample_text": "",
+      "comment": "Item3_Country_Code",
+      "field_type": "country_code",
+      "has_thai": false
+    }
+  }
+}
