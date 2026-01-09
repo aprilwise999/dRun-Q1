@@ -1,4 +1,3 @@
-# In parsers/customs_parser.py
 import re
 from typing import List
 from models import CustomsLine, OriginCountry
