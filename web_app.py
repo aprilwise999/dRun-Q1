@@ -1,4 +1,4 @@
-# web_app.py
+# web_app.py — PATCHED FOR RENDER
 import streamlit as st
 import pandas as pd
 from io import BytesIO
@@ -30,7 +30,8 @@ def to_excel(df: pd.DataFrame):
         cell.fill = PatternFill(start_color="DDDDDD", end_color="DDDDDD", fill_type="solid")
 
     for row_idx, row in enumerate(df.itertuples(), 2):
-        status = row.status_code  # 'ok', 'warn', 'error'
+        # Ensure 'status_code' exists
+        status = getattr(row, 'status_code', 'error')
         for col_idx, value in enumerate(row[1:], 1):
             cell = ws.cell(row=row_idx, column=col_idx, value=str(value))
 
@@ -38,12 +39,13 @@ def to_excel(df: pd.DataFrame):
                 cell.fill = PatternFill(start_color="D4EDDA", end_color="D4EDDA", fill_type="solid")
             elif status == "warn":
                 cell.fill = PatternFill(start_color="FFF3CD", end_color="FFF3CD", fill_type="solid")
-            elif status == "error":
+            else:  # 'error' or missing
                 cell.fill = PatternFill(start_color="F8D7DA", end_color="F8D7DA", fill_type="solid")
 
             if headers[col_idx - 1] in ["Part#", "Desc", "Origin"]:
-                snippet = f"ใบขนฯ: {row.customs_snippet}\nInvoice: {row.invoice_snippet}"
-                cell.comment = Comment(snippet[:200] + "...", "SparePart Verify POC")
+                snippet = f"ใบขนฯ: {getattr(row, 'customs_snippet', '')}\nInvoice: {getattr(row, 'invoice_snippet', '')}"
+                if snippet.strip():
+                    cell.comment = Comment(snippet[:200] + "...", "SparePart Verify POC")
 
     for col in ws.columns:
         max_length = 0
@@ -117,11 +119,32 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
 
         results = []
         total = min(len(customs_lines), len(invoice_lines))
-        for i in range(total):
-            c_line = customs_lines[i]
+        max_lines = max(len(customs_lines), len(invoice_lines))
+
+        # Handle all lines (including mismatches in count)
+        for i in range(max_lines):
+            c_line = customs_lines[i] if i < len(customs_lines) else None
             inv_line = invoice_lines[i] if i < len(invoice_lines) else None
 
-            if not inv_line:
+            if not c_line and not inv_line:
+                continue
+            elif not c_line:
+                # Extra invoice line
+                result = {
+                    "Line": i + 1,
+                    "Part#": inv_line.part_no if inv_line else "",
+                    "Desc": (inv_line.desc_en[:30] if inv_line else ""),
+                    "Qty": f"{inv_line.qty}" if inv_line else "",
+                    "Unit": inv_line.unit if inv_line else "",
+                    "Total EUR": f"{inv_line.total_eur:.2f}" if inv_line else "",
+                    "Origin": inv_line.origin_raw if inv_line else "",
+                    "Status": "🔴 Extra in Invoice",
+                    "Status Code": "error",
+                    "customs_snippet": "⚠️ Not in Customs",
+                    "invoice_snippet": _format_invoice_snippet(inv_line) if inv_line else "",
+                }
+            elif not inv_line:
+                # Extra customs line
                 result = {
                     "Line": c_line.line_no,
                     "Part#": c_line.part_no,
@@ -130,12 +153,13 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
                     "Unit": c_line.unit,
                     "Total EUR": f"{c_line.price_eur:.2f}",
                     "Origin": c_line.origin.value,
-                    "Status": "🔴 Missing",
+                    "Status": "🔴 Extra in Customs",
                     "Status Code": "error",
                     "customs_snippet": _format_customs_snippet(c_line),
-                    "invoice_snippet": "⚠️ Not found",
+                    "invoice_snippet": "⚠️ Not in Invoice",
                 }
             else:
+                # Both exist → match
                 match_res = match_line(inv_line, c_line)
                 status_map = {"ok": "✅ Match", "warn": "🟡 Review", "error": "🔴 Mismatch"}
                 status_code = match_res["status"]
@@ -157,15 +181,16 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
         df = pd.DataFrame(results)
         st.session_state.results_df = df
 
+        # Now safe: "Status Code" always exists
         ok = (df["Status Code"] == "ok").sum()
         warn = (df["Status Code"] == "warn").sum()
         err = (df["Status Code"] == "error").sum()
 
         st.subheader("📊 Verification Summary")
         c1, c2, c3, c4 = st.columns(4)
-        c1.metric("✅ Matched", ok)
-        c2.metric("🟡 Warnings", warn)
-        c3.metric("🔴 Errors", err)
+        c1.metric("✅ Matched", int(ok))
+        c2.metric("🟡 Warnings", int(warn))
+        c3.metric("🔴 Errors", int(err))
         c4.metric("📄 Total", len(df))
 
         if err > 0:
@@ -179,14 +204,21 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
         st.error(f"❌ Error during verification: {str(e)}")
         st.exception(e)
 
+# Display results
 if st.session_state.results_df is not None:
     df = st.session_state.results_df
 
     st.divider()
     st.subheader("🔍 Line-by-Line Verification")
 
+    # Ensure required columns exist
+    display_cols = ["Line", "Part#", "Desc", "Qty", "Unit", "Total EUR", "Origin", "Status"]
+    for col in display_cols:
+        if col not in df.columns:
+            df[col] = ""
+
     st.dataframe(
-        df[["Line", "Part#", "Desc", "Qty", "Unit", "Total EUR", "Origin", "Status"]],
+        df[display_cols],
         column_config={
             "Line": st.column_config.NumberColumn("Line", width="small"),
             "Part#": st.column_config.TextColumn("Part#", width="small"),
@@ -203,14 +235,17 @@ if st.session_state.results_df is not None:
 
     st.divider()
     st.subheader("📥 Export Report")
-    excel_bytes = to_excel(df)
-    st.download_button(
-        label="📥 Download Excel Report",
-        data=excel_bytes,
-        file_name=f"verification_report_{pd.Timestamp.now():%Y%m%d_%H%M}.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        type="primary",
-    )
+    try:
+        excel_bytes = to_excel(df)
+        st.download_button(
+            label="📥 Download Excel Report",
+            data=excel_bytes,
+            file_name=f"verification_report_{pd.Timestamp.now():%Y%m%d_%H%M}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            type="primary",
+        )
+    except Exception as e:
+        st.error(f"❌ Excel export failed: {e}")
 
     st.divider()
     st.subheader("🔍 View Line Details")
@@ -227,11 +262,12 @@ if st.session_state.results_df is not None:
             c1, c2 = st.columns(2)
             with c1:
                 st.markdown("📄 **ใบขนฯ (Customs)**")
-                st.code(r["customs_snippet"], language=None)
+                st.code(r.get("customs_snippet", "N/A"), language=None)
             with c2:
                 st.markdown("🧾 **Invoice**")
-                st.code(r["invoice_snippet"], language=None)
+                st.code(r.get("invoice_snippet", "N/A"), language=None)
 
+# --- Helper funcs ---
 def _format_customs_snippet(line: CustomsLine) -> str:
     return (
         f"Line {line.line_no} | HS: {line.hs_code}\n"
