@@ -1,0 +1,192 @@
+﻿Diagnose log at 2026-01-08T15:06:43Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.6.1+786ab03440ddc82e807a97c0e540f5247e44cec6
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 19045)
+Reading environment variables... OK
+ Variables:
+HOMEPATH=\Users\paibo
+DriverData=C:\Windows\System32\Drivers\DriverData
+COMPUTERNAME=CORNCORN
+PYENV=C:\Users\paibo\.pyenv\pyenv-win\bin
+GIT_TRACE2_PARENT_SID=0c53a202-4837-42f0-ad7d-b4e267873705
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+OneDrive=C:\Users\paibo\OneDrive
+SESSIONNAME=Console
+TMP=C:\Users\paibo\AppData\Local\Temp
+PROCESSOR_REVISION=a505
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+TEMP=C:\Users\paibo\AppData\Local\Temp
+LOCALAPPDATA=C:\Users\paibo\AppData\Local
+MSYSTEM=MINGW64
+TERM=xterm-256color
+PYENV_HOME=C:\Users\paibo\.pyenv
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 165 Stepping 5, GenuineIntel
+COLORTERM=truecolor
+USERDOMAIN=CORNCORN
+GOOGLE_API_KEY=AIzaSyBeKo_KG9miBRdIR-XoIIE9rBEDUfi0-H8
+Path=C:/Program Files/Git/mingw64/libexec/git-core;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\paibo\bin;C:\Program Files\ImageMagick-7.1.2-Q16-HDRI;C:\Program Files\PostgreSQL\17\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2022b\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\CMake\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\PostgreSQL\17\bin;C:\Program Files\nodejs\;C:\Program Files\Meld\;C:\Program Files\Git\cmd;C:\Users\paibo\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\paibo\AppData\Local\Programs\Python\Python310\;C:\Users\paibo\.pyenv\pyenv-win\bin;C:\Users\paibo\.pyenv\shims;C:\Users\paibo\.pyenv\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\bin;C:\Program Files\dotnet\;C:\Program Files\MATLAB\R2022b\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\CMake\bin;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\paibo\.dotnet\tools;c:\users\paibo\videos\ff\bin;C:\Users\paibo\.cache\lm-studio\bin;C:\Users\paibo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\paibo\AppData\Roaming\npm;C:\Users\paibo\AppData\Local\Programs\Kiro\bin;C:\Users\paibo\AppData\Local\Programs\Antigravity\bin;C:\Users\paibo\.local\bin;C:\Users\paibo\AppData\Roaming\npm;
+PROCESSOR_LEVEL=6
+NUMBER_OF_PROCESSORS=16
+TMPDIR=C:\Users\paibo\AppData\Local\Temp
+APPDATA=C:\Users\paibo\AppData\Roaming
+PROMPT=$P$G
+ANTHROPIC_MODEL=qwen/qwen3-max
+ProgramFiles(x86)=C:\Program Files (x86)
+PUBLIC=C:\Users\Public
+ANTHROPIC_BASE_URL=https://openrouter.ai/api
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+asl.log=Destination=file
+PLINK_PROTOCOL=ssh
+ProgramData=C:\ProgramData
+ProgramW6432=C:\Program Files
+ProgramFiles=C:\Program Files (x86)
+SystemRoot=C:\WINDOWS
+INTEL_DEV_REDIST=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
+HOME=C:\Users\paibo
+LC_CTYPE=C.UTF-8
+CommonProgramW6432=C:\Program Files\Common Files
+LOGONSERVER=\\CORNCORN
+USERPROFILE=C:\Users\paibo
+ANTHROPIC_API_KEY=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
+USERDOMAIN_ROAMINGPROFILE=CORNCORN
+PROCESSOR_ARCHITEW6432=AMD64
+HOMEDRIVE=C:
+PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Google\Cloud SDK\google-cloud-sdk\platform\PowerShell
+USERNAME=paibo
+MIC_LD_LIBRARY_PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic
+PROCESSOR_ARCHITECTURE=x86
+OS=Windows_NT
+ComSpec=C:\WINDOWS\system32\cmd.exe
+SystemDrive=C:
+windir=C:\WINDOWS
+OneDriveConsumer=C:\Users\paibo\OneDrive
+ALLUSERSPROFILE=C:\ProgramData
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\paibo\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\paibo\AppData\Local\Temp\0d1d49c9b15f0f701a69a3f0'... OK
+Reading from temporary file 'C:\Users\paibo\AppData\Local\Temp\0d1d49c9b15f0f701a69a3f0'... OK
+Deleting temporary file 'C:\Users\paibo\AppData\Local\Temp\0d1d49c9b15f0f701a69a3f0'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\paibo
+UserDataDirectoryPath: C:\Users\paibo\.gcm
+GetCurrentDirectory(): C:\Users\paibo\Documents\2025-Invoice\dRun\dRUN-Q1
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+ OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:64548/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.52.0.windows.1'
+Locating current repository...Git repository at 'C:/Users/paibo/Documents/2025-Invoice/dRun/dRUN-Q1/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:C:/Program Files/Git/etc/gitconfig	diff.astextplain.textconv=astextplain
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Program Files/Git/etc/gitconfig	filter.lfs.required=true
+file:C:/Program Files/Git/etc/gitconfig	http.sslbackend=schannel
+file:C:/Program Files/Git/etc/gitconfig	core.autocrlf=true
+file:C:/Program Files/Git/etc/gitconfig	core.fscache=true
+file:C:/Program Files/Git/etc/gitconfig	core.symlinks=false
+file:C:/Program Files/Git/etc/gitconfig	core.editor="C:\\Program Files\\Sublime Text 3\\subl.exe" -w
+file:C:/Program Files/Git/etc/gitconfig	pull.rebase=false
+file:C:/Program Files/Git/etc/gitconfig	credential.helper=manager
+file:C:/Program Files/Git/etc/gitconfig	credential.https://dev.azure.com.usehttppath=true
+file:C:/Program Files/Git/etc/gitconfig	init.defaultbranch=master
+file:C:/Users/paibo/.gitconfig	user.email=suanluang2568@gmail.com
+file:C:/Users/paibo/.gitconfig	user.name=suanluang1
+file:C:/Users/paibo/.gitconfig	filter.lfs.clean=git-lfs clean -- %f
+file:C:/Users/paibo/.gitconfig	filter.lfs.smudge=git-lfs smudge -- %f
+file:C:/Users/paibo/.gitconfig	filter.lfs.process=git-lfs filter-process
+file:C:/Users/paibo/.gitconfig	filter.lfs.required=true
+file:C:/Users/paibo/.gitconfig	credential.helper=
+file:C:/Users/paibo/.gitconfig	credential.helper=C:/Program\ Files/Git/mingw64/bin/git-credential-manager.exe
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=false
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	core.symlinks=false
+file:.git/config	core.ignorecase=true
+file:.git/config	remote.origin.url=https://github.com/aprilwise999/dRun-Q1
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+file:.git/config	user.name=aprilwise999
+file:.git/config	user.email=aprilwise999@gmail.com
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Flow type is: Auto
+Gathering MSAL token cache data... OK
+CacheDirectory: C:\Users\paibo\AppData\Local\.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: C:\Users\paibo\AppData\Local\.IdentityService\msal.cache
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
