@@ -1,4 +1,4 @@
-# web_app.py — PATCHED FOR RENDER
+# web_app.py — FULLY CORRECTED FOR RENDER
 import streamlit as st
 import pandas as pd
 from io import BytesIO
@@ -16,6 +16,24 @@ from parsers.bl_parser import BLParser
 from matchers.field_matcher import match_line
 from models import CustomsLine, InvoiceLine, BLLine
 
+# --- HELPER FUNCTIONS (MUST BE DEFINED BEFORE USE) ---
+def _format_customs_snippet(line: CustomsLine) -> str:
+    return (
+        f"Line {line.line_no} | HS: {line.hs_code}\n"
+        f"Part: {line.part_no} | Desc: {line.desc_en}\n"
+        f"Qty: {line.qty} {line.unit} | Total: EUR {line.price_eur:.2f}\n"
+        f"Origin: {line.origin.value} | invno# {line.invoice_no}"
+    )
+
+def _format_invoice_snippet(line: InvoiceLine) -> str:
+    return (
+        f"Line {line.line_no} | Part: {line.part_no}\n"
+        f"Desc: {line.desc_en}\n"
+        f"Qty: {line.qty} {line.unit} | Unit: {line.unit_price} | Total: {line.total_eur}\n"
+        f"Origin: {line.origin_raw}\n"
+        f"Delivery: {line.delivery_no}"
+    )
+
 # --- Excel Export Helper ---
 def to_excel(df: pd.DataFrame):
     output = BytesIO()
@@ -30,7 +48,6 @@ def to_excel(df: pd.DataFrame):
         cell.fill = PatternFill(start_color="DDDDDD", end_color="DDDDDD", fill_type="solid")
 
     for row_idx, row in enumerate(df.itertuples(), 2):
-        # Ensure 'status_code' exists
         status = getattr(row, 'status_code', 'error')
         for col_idx, value in enumerate(row[1:], 1):
             cell = ws.cell(row=row_idx, column=col_idx, value=str(value))
@@ -39,7 +56,7 @@ def to_excel(df: pd.DataFrame):
                 cell.fill = PatternFill(start_color="D4EDDA", end_color="D4EDDA", fill_type="solid")
             elif status == "warn":
                 cell.fill = PatternFill(start_color="FFF3CD", end_color="FFF3CD", fill_type="solid")
-            else:  # 'error' or missing
+            else:
                 cell.fill = PatternFill(start_color="F8D7DA", end_color="F8D7DA", fill_type="solid")
 
             if headers[col_idx - 1] in ["Part#", "Desc", "Origin"]:
@@ -58,7 +75,8 @@ def to_excel(df: pd.DataFrame):
     wb.save(output)
     return output.getvalue()
 
-# Page config
+
+# --- STREAMLIT APP ---
 st.set_page_config(
     page_title="SparePart Verify POC — TRU Automotive",
     page_icon="🔍",
@@ -118,10 +136,8 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
             bl_data = BLParser().parse(str(bl_file))
 
         results = []
-        total = min(len(customs_lines), len(invoice_lines))
         max_lines = max(len(customs_lines), len(invoice_lines))
 
-        # Handle all lines (including mismatches in count)
         for i in range(max_lines):
             c_line = customs_lines[i] if i < len(customs_lines) else None
             inv_line = invoice_lines[i] if i < len(invoice_lines) else None
@@ -129,9 +145,8 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
             if not c_line and not inv_line:
                 continue
             elif not c_line:
-                # Extra invoice line
                 result = {
-                    "Line": i + 1,
+                    "Line": (i + 1),
                     "Part#": inv_line.part_no if inv_line else "",
                     "Desc": (inv_line.desc_en[:30] if inv_line else ""),
                     "Qty": f"{inv_line.qty}" if inv_line else "",
@@ -144,7 +159,6 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
                     "invoice_snippet": _format_invoice_snippet(inv_line) if inv_line else "",
                 }
             elif not inv_line:
-                # Extra customs line
                 result = {
                     "Line": c_line.line_no,
                     "Part#": c_line.part_no,
@@ -159,7 +173,6 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
                     "invoice_snippet": "⚠️ Not in Invoice",
                 }
             else:
-                # Both exist → match
                 match_res = match_line(inv_line, c_line)
                 status_map = {"ok": "✅ Match", "warn": "🟡 Review", "error": "🔴 Mismatch"}
                 status_code = match_res["status"]
@@ -181,7 +194,6 @@ if st.button("✔️ Verify Documents", type="primary", disabled=not (customs_pa
         df = pd.DataFrame(results)
         st.session_state.results_df = df
 
-        # Now safe: "Status Code" always exists
         ok = (df["Status Code"] == "ok").sum()
         warn = (df["Status Code"] == "warn").sum()
         err = (df["Status Code"] == "error").sum()
@@ -211,7 +223,6 @@ if st.session_state.results_df is not None:
     st.divider()
     st.subheader("🔍 Line-by-Line Verification")
 
-    # Ensure required columns exist
     display_cols = ["Line", "Part#", "Desc", "Qty", "Unit", "Total EUR", "Origin", "Status"]
     for col in display_cols:
         if col not in df.columns:
@@ -266,21 +277,3 @@ if st.session_state.results_df is not None:
             with c2:
                 st.markdown("🧾 **Invoice**")
                 st.code(r.get("invoice_snippet", "N/A"), language=None)
-
-# --- Helper funcs ---
-def _format_customs_snippet(line: CustomsLine) -> str:
-    return (
-        f"Line {line.line_no} | HS: {line.hs_code}\n"
-        f"Part: {line.part_no} | Desc: {line.desc_en}\n"
-        f"Qty: {line.qty} {line.unit} | Total: EUR {line.price_eur:.2f}\n"
-        f"Origin: {line.origin.value} | invno# {line.invoice_no}"
-    )
-
-def _format_invoice_snippet(line: InvoiceLine) -> str:
-    return (
-        f"Line {line.line_no} | Part: {line.part_no}\n"
-        f"Desc: {line.desc_en}\n"
-        f"Qty: {line.qty} {line.unit} | Unit: {line.unit_price} | Total: {line.total_eur}\n"
-        f"Origin: {line.origin_raw}\n"
-        f"Delivery: {line.delivery_no}"
-    )
