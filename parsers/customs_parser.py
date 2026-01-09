@@ -1,40 +1,40 @@
-# customs_parser.py
+# In parsers/customs_parser.py
 import re
-import pdfplumber
 from typing import List
 from models import CustomsLine, OriginCountry
-
-# Robust regex for ใบขนฯ — handles Thai/English mix, space variations
-LINE_RE = re.compile(
-    r'^\s*(\d+)\s+'                          # line_no
-    r'([\d\.]+)\s+'                          # hs_code
-    r'.*?'                                  
-    r'\s(\d+[A-Z]*)\s+([A-Z\s]+?)\s+'       # part_no + desc_en (non-greedy)
-    r'([\d\.,]+)\s+([A-Z0-9]+)\s+'          # qty + unit
-    r'.*?EUR\s+([\d\.,]+)\s+'               # price_eur
-    r'.*?(?:FEBI|SWAG|ZF)\s+([A-Z]{2})\s+'  # origin (DE, CN, etc.)
-    r'invno#\s+(\d+)',                       # invoice_no
-    re.MULTILINE | re.IGNORECASE
-)
 
 def _normalize_number(s: str) -> float:
     return float(s.replace(',', '').replace(' ', ''))
 
-def extract_full_text(pdf_path: str) -> str:
-    text = ""
-    with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            page_text = page.extract_text(x_tolerance=1, y_tolerance=1) or ""
-            text += page_text + "\n"
-    return text
-
 def parse_customs(pdf_path: str) -> List[CustomsLine]:
+    import pdfplumber
     lines = []
-    text = extract_full_text(pdf_path)
-
-    for match in LINE_RE.finditer(text):
+    
+    with pdfplumber.open(pdf_path) as pdf:
+        full_text = "\n".join(p.extract_text() or "" for p in pdf.pages)
+    
+    # Handle Set 1 format (FEBI/SWAG)
+    set1_pattern = re.compile(
+        r'^\s*(\d+)\s+([\d\.]+)\s+.*?(\d+[A-Z]*)\s+([A-Z\s]{5,}?)\s+([\d\.,]+)\s+([A-Z0-9]+)\s+.*?EUR\s+([\d\.,]+)\s+.*?(?:FEBI|SWAG|ZF)\s+([A-Z]{2})\s+invno#\s+(\d+)',
+        re.MULTILINE | re.IGNORECASE
+    )
+    
+    # Handle Set 2 format (ZF Korea) — more flexible
+    set2_pattern = re.compile(
+        r'(\d{6,}[A-Z]*)\s+(.+?)\s+'
+        r'(\d+(?:\.\d+)?)\s+([\d\.,]+)\s+KGM\s+\d+\s+'
+        r'(\d+(?:\.\d+)?)%\s+'
+        r'(\d+(?:\.\d+)?)\s+([A-Z0-9]+)\s+'
+        r'0\.00\s+([\d\.,]+)\s+[\d\.,]+\s+'
+        r'[A-Z0-9]+\s+([A-Z]{2})\s+'
+        r'invno#\s+(\d+)',
+        re.DOTALL
+    )
+    
+    # Try Set 1 first
+    for match in set1_pattern.finditer(full_text):
         try:
-            line = CustomsLine(
+            lines.append(CustomsLine(
                 line_no=int(match.group(1)),
                 hs_code=match.group(2).strip(),
                 part_no=match.group(3).strip(),
@@ -44,9 +44,26 @@ def parse_customs(pdf_path: str) -> List[CustomsLine]:
                 price_eur=_normalize_number(match.group(7)),
                 origin=OriginCountry(match.group(8).strip()),
                 invoice_no=match.group(9).strip()
-            )
-            lines.append(line)
-        except (ValueError, KeyError) as e:
-            print(f"⚠️ Skipping line {match.group(1)}: {e}")
+            ))
+        except:
             continue
+    
+    # If no Set 1 lines found, try Set 2
+    if not lines:
+        for match in set2_pattern.finditer(full_text):
+            try:
+                lines.append(CustomsLine(
+                    line_no=1,
+                    hs_code="",  # Not clearly available in Set 2
+                    part_no=match.group(1).strip(),
+                    desc_en=match.group(2).strip(),
+                    qty=_normalize_number(match.group(6)),  # C62 quantity
+                    unit=match.group(7).strip(),  # e.g., C62
+                    price_eur=_normalize_number(match.group(8)),
+                    origin=OriginCountry(match.group(9).strip()),
+                    invoice_no=match.group(10).strip()
+                ))
+            except:
+                continue
+    
     return lines
