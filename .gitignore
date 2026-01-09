@@ -17,4 +17,4 @@ temp_upload/
 *.tmp
 
 # Data (optional: ignore after first commit)
-# sample_data/
+# sample_data/"sample_data/" 
